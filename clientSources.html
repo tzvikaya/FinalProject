@@ -1,0 +1,218 @@
+<!DOCTYPE HTML>
+<!--
+	ZeroFour by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Right Sidebar - ZeroFour by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+
+        
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.5.0/fullcalendar.min.css" />
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.5.0/fullcalendar.print.css" media="print" />
+	</head>
+<body class="right-sidebar">
+    <div id="page-wrapper">
+
+        <!-- Header Wrapper -->
+        <div id="header-wrapper">
+            <div class="container">
+
+                <!-- Header -->
+                <header id="header">
+                    <div class="inner">
+                        <h1><a href="index.html" id="logo">SmartEvents</a></h1>
+                        <nav id="nav">
+                            <ul>
+                                <li>
+                                    <a href="index.html">Home</a>
+                                </li>
+                                <li>
+                                    <a href="org.html">Organization</a>
+                                </li>
+                                <li>
+                                    <a href="client.html">Client</a>
+                                </li>
+                                <li  class="current_page_item">
+                                    <a href="clientSources.html">Client sources</a>
+                                </li>
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </header>
+            </div>
+        </div>
+
+        <!-- Main Wrapper -->
+        <div id="main-wrapper">
+            <div class="wrapper style2">
+                <div class="inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="8u 12u(mobile)">
+                                <div id="content">
+                                  
+                                    <!-- Content -->
+
+                                    <article>
+                                        <header class="major">
+                                            <h2>Right Sidebar</h2>
+                                        </header>
+
+                                        <h3>
+                                            Your subscriptions:
+                                        </h3>
+                                        <div class="suppliers">
+                                            <div class="supplier-item" style="background-color:#C13D3D;">
+                                                Jerusalem municipality
+                                            </div>
+                                            <div class="supplier-item" style="background-color:#000">
+                                                The Licensing Office
+                                            </div>
+                                        </div>
+
+                                        <h3>discover new:</h3>
+                                        <div class="suppliers">
+                                            <div class="supplier-item" style="background-color:#cb7375;">xxxxxxxxxxxxxxxxxxxx</div>
+                                            <div class="supplier-item" style="background-color:#81d8d0;">yyyyyyyyyyyyyyyyyyyyy</div>
+                                            <div class="supplier-item" style="background-color:#1e252b;">
+                                                zzzzzzzzzzzzzzzzzzzzzzzzzz
+                                            </div>
+                                            <div class="supplier-item" style="background-color:#673939;">
+                                                ttttttttttttttttttttttttttt
+                                            </div>
+                                        </div>
+                                    </article>
+
+                                </div>
+                            </div>
+                            <div class="4u 12u(mobile)">
+                                <div id="sidebar">
+
+                                    <!-- Sidebar -->
+
+                                    <section>
+                                        <header class="major">
+                                            <h2>Subheading</h2>
+                                        </header>
+                                      
+                                        <footer>
+                                            <a href="#" class="button icon fa-info-circle">Find out more</a>
+                                        </footer>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <!-- Scripts -->
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/skel-viewport.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="assets/js/main.js"></script>
+    <script src="http://fullcalendar.io/js/fullcalendar-2.5.0/lib/moment.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.5.0/fullcalendar.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('#calendar').fullCalendar({
+                theme: true,
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                defaultDate: '2015-12-12',
+                editable: true,
+                eventLimit: true, // allow "more" link when too many events
+                events: [
+                {
+                    title: 'All Day Event',
+                    start: '2015-12-01'
+                },
+                {
+                    title: 'Long Event',
+                    start: '2015-12-07',
+                    end: '2015-12-10'
+                },
+                {
+                    id: 999,
+                    title: 'Repeating Event',
+                    start: '2015-12-09T16:00:00',
+                    color: '#000',
+                    textColor: '#fff'
+                },
+                {
+                    id: 999,
+                    title: 'Repeating Event',
+                    start: '2015-12-16T16:00:00'
+                },
+                {
+                    title: 'Conference',
+                    start: '2015-12-11',
+                    end: '2015-12-13',
+                    color: '#C13D3D'
+                },
+                {
+                    title: 'Meeting',
+                    start: '2015-12-12T10:30:00',
+                    end: '2015-12-12T12:30:00'
+                },
+                {
+                    title: 'Lunch',
+                    start: '2015-12-12T12:00:00'
+                },
+                {
+                    title: 'Meeting',
+                    start: '2015-12-12T14:30:00'
+                },
+                {
+                    title: 'Happy Hour',
+                    start: '2015-12-12T17:30:00'
+                },
+                {
+                    title: 'Dinner',
+                    start: '2015-12-12T20:00:00'
+                },
+                {
+                    title: 'Birthday Party',
+                    start: '2015-12-13T07:00:00'
+                },
+                {
+                    title: 'Click for Google',
+                    url: 'http://google.com/',
+                    start: '2015-12-28'
+                }
+                ]
+            });
+
+        });
+    </script>
+
+    <script>
+        $('.supplier-item').click(function () {
+            alert('You are now registered to: ' + $(this).text());
+        });
+    </script>
+</body>
+</html>
