@@ -2,4 +2,4 @@
 final
 
 template taken from:
-<a href="http://html5up.net/zerofour/download">http://html5up.net/zerofour/download</a>
+<a href="http://html5up.net/zerofour/">http://html5up.net/zerofour/</a>
