@@ -1,5 +1,4 @@
-# FinalProject
-final
+# FinalProj
+final project by Zvika Yamin
 
 template taken from:
-<a href="http://html5up.net/zerofour/">http://html5up.net/zerofour/</a>
