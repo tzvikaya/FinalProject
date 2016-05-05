@@ -8,110 +8,78 @@ zvikaAppControllers.controller("indexCtrl", function($scope) {
 zvikaAppControllers.controller("sourcesCtrl", function($scope) {
     $scope.sourcesList = [
         {
+            day: 13,
+            month: "April",
+            desc: "Jerusalem municipality source.",
+            area: "municipality",
+            price: "$00.00",
+            button: "Subscribe",
+            buttonClass: "btn-blue"
+        },
+        {
             day: 16,
-            month: "march",
-            desc: "Jerusalem municipality source",
-            area: "Siemens Arena",
-            price: "$50.00",
+            month: "March",
+            desc: "JCE Azriele source.",
+            area: "college",
+            price: "$00.00",
+            button: "unSubscribe",
+            buttonClass: "btn-red"
+        },
+        {
+            day: 26,
+            month: "June",
+            desc: "Licensing Department.",
+            area: "vehicle",
+            price: "$00.00",
+            button: "Subscribe",
+            buttonClass: "btn-blue"
+        },
+        {
+            day: 10,
+            month: "November",
+            desc: "Leumit Health Care Services.",
+            area: "National health service",
+            price: "$10.00",
             button: "Subscribe",
             buttonClass: "btn-blue"
         },
         {
             day: 16,
             month: "march",
-            desc: "JCE Azriele source",
-            area: "Siemens Arena",
-            price: "$50.00",
+            desc: "google calendar.",
+            area: "calendar service",
+            price: "$00.00",
             button: "unSubscribe",
             buttonClass: "btn-red"
         },
         {
             day: 16,
             month: "march",
-            desc: "Donec hendrerit massa metus, a ultrices elit iaculis eu. Pellentesque ullamcorper augue lacus.",
-            area: "Siemens Arena",
-            price: "$50.00",
-            button: "Subscribe",
-            buttonClass: "btn-blue"
+            desc: "Student Dani Din.",
+            area: "Linear test",
+            price: "$00.00",
+            button: "unSubscribe",
+            buttonClass: "btn-red"
         },
         {
-            day: 16,
-            month: "march",
-            desc: "Donec hendrerit massa metus, a ultrices elit iaculis eu. Pellentesque ullamcorper augue lacus.",
-            area: "Siemens Arena",
-            price: "$50.00",
-            button: "Subscribe",
-            buttonClass: "btn-blue"
-        },
-        {
-            day: 16,
-            month: "march",
-            desc: "Donec hendrerit massa metus, a ultrices elit iaculis eu. Pellentesque ullamcorper augue lacus.",
-            area: "Siemens Arena",
-            price: "$50.00",
+            day: 1,
+            month: "August",
+            desc: "Student Zvika Yamin.",
+            area: "soccer game",
+            price: "$0.00",
             button: "unSubscribe",
             buttonClass: "btn-red"
         },
         {
             day: 16,
             month: "march",
-            desc: "Donec hendrerit massa metus, a ultrices elit iaculis eu. Pellentesque ullamcorper augue lacus.",
+            desc: "Dogy Dog veterinarian.",
             area: "Siemens Arena",
             price: "$50.00",
             button: "unSubscribe",
             buttonClass: "btn-red"
         },
-        {
-            day: 16,
-            month: "march",
-            desc: "Donec hendrerit massa metus, a ultrices elit iaculis eu. Pellentesque ullamcorper augue lacus.",
-            area: "Siemens Arena",
-            price: "$50.00",
-            button: "unSubscribe",
-            buttonClass: "btn-red"
-        },
-        {
-            day: 16,
-            month: "march",
-            desc: "Donec hendrerit massa metus, a ultrices elit iaculis eu. Pellentesque ullamcorper augue lacus.",
-            area: "Siemens Arena",
-            price: "$50.00",
-            button: "unSubscribe",
-            buttonClass: "btn-red"
-        },
-        {
-            day: 16,
-            month: "march",
-            desc: "Donec hendrerit massa metus, a ultrices elit iaculis eu. Pellentesque ullamcorper augue lacus.",
-            area: "Siemens Arena",
-            price: "$50.00",
-            button: "Subscribe",
-            buttonClass: "btn-blue"
-        },
-        {
-            day: 16,
-            month: "march",
-            desc: "Donec hendrerit massa metus, a ultrices elit iaculis eu. Pellentesque ullamcorper augue lacus.",
-            area: "Siemens Arena",
-            price: "$50.00",
-            button: "Read More"
-        },
-        {
-            day: 16,
-            month: "march",
-            desc: "Donec hendrerit massa metus, a ultrices elit iaculis eu. Pellentesque ullamcorper augue lacus.",
-            area: "Siemens Arena",
-            price: "$50.00",
-            button: "Read More"
-        },
-        {
-            day: 16,
-            month: "march",
-            desc: "Donec hendrerit massa metus, a ultrices elit iaculis eu. Pellentesque ullamcorper augue lacus.",
-            area: "Siemens Arena",
-            price: "$50.00",
-            button: "Read More"
-        }
+       
     ];
     
     
