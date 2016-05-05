@@ -74,7 +74,7 @@ zvikaAppControllers.controller("sourcesCtrl", function($scope) {
             day: 16,
             month: "march",
             desc: "Dogy Dog veterinarian.",
-            area: "Siemens Arena",
+            area: "Dog Care",
             price: "$50.00",
             button: "unSubscribe",
             buttonClass: "btn-red"
