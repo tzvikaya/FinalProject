@@ -15,24 +15,25 @@ namespace SmartCalendar.API.Controllers
     public class EventsController : ApiController
     {
         private zvikaEntities db = new zvikaEntities();
-
-        // GET: api/Events
-        public IQueryable<Events> GetEvents()
-        {
-            return db.Events;
-        }
-
+        
         // GET: api/Events/5
+        //gets the user id and return all events registered to
         [ResponseType(typeof(Events))]
         public IHttpActionResult GetEvents(int id)
         {
-            Events events = db.Events.Find(id);
+            var userSources = db.Users_Sources
+                .Where(u => u.user_id == id)
+                .Select(s => s.source_id);
+
+            var events = db.Events
+                .Where(e => userSources.Contains(e.source_id));
+
             if (events == null)
             {
                 return NotFound();
             }
 
-            return Ok(events);
+            return Ok(events.ToList());
         }
 
         // PUT: api/Events/5

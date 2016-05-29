@@ -14,19 +14,13 @@ namespace SmartCalendar.DB
     
     public partial class Events
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Events()
-        {
-            this.Users = new HashSet<Users>();
-        }
-    
         public int event_id { get; set; }
         public string event_name { get; set; }
         public string event_desc { get; set; }
         public Nullable<System.DateTime> event_datetimeUTC { get; set; }
         public string event_location { get; set; }
+        public int source_id { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Users> Users { get; set; }
+        public virtual Sources Sources { get; set; }
     }
 }

@@ -1,24 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="zvikaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="zvikaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Events" EntityType="zvikaModel.Events" />
+    <EntitySet Name="Sources" EntityType="zvikaModel.Sources" />
+    <EntitySet Name="Users" EntityType="zvikaModel.Users" />
+    <EntitySet Name="Users_Sources" EntityType="zvikaModel.Users_Sources" />
+    <AssociationSet Name="FK_Events_Source_Event" Association="zvikaModel.FK_Events_Source_Event">
+      <End Role="Sources" EntitySet="Sources" />
+      <End Role="Events" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Events_Sources" Association="zvikaModel.FK_Users_Events_Sources">
+      <End Role="Sources" EntitySet="Sources" />
+      <End Role="Users_Sources" EntitySet="Users_Sources" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Events_Users" Association="zvikaModel.FK_Users_Events_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Users_Sources" EntitySet="Users_Sources" />
+    </AssociationSet>
+  </EntityContainer>
   <EntityType Name="Events">
     <Key>
       <PropertyRef Name="event_id" />
     </Key>
     <Property Name="event_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="event_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="event_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="event_desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="event_datetimeUTC" Type="DateTime" Precision="3" />
     <Property Name="event_location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Users" Relationship="Self.Users_Events" FromRole="Events" ToRole="Users" />
+    <Property Name="source_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Sources" Relationship="zvikaModel.FK_Events_Source_Event" FromRole="Events" ToRole="Sources" />
   </EntityType>
   <EntityType Name="Sources">
     <Key>
       <PropertyRef Name="source_id" />
     </Key>
     <Property Name="source_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="source_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="source_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="source_username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="source_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="source_password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="source_username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Events" Relationship="zvikaModel.FK_Events_Source_Event" FromRole="Sources" ToRole="Events" />
+    <NavigationProperty Name="Users_Sources" Relationship="zvikaModel.FK_Users_Events_Sources" FromRole="Sources" ToRole="Users_Sources" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -31,19 +52,53 @@
     <Property Name="user_isRegistered" Type="Boolean" Nullable="false" />
     <Property Name="user_firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="user_lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Events" Relationship="Self.Users_Events" FromRole="Users" ToRole="Events" />
+    <NavigationProperty Name="Users_Sources" Relationship="zvikaModel.FK_Users_Events_Users" FromRole="Users" ToRole="Users_Sources" />
   </EntityType>
-  <Association Name="Users_Events">
-    <End Role="Events" Type="Self.Events" Multiplicity="*" />
-    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+  <EntityType Name="Users_Sources">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="source_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="source_id" Type="Int32" Nullable="false" />
+    <Property Name="dateRegistered" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Sources" Relationship="zvikaModel.FK_Users_Events_Sources" FromRole="Users_Sources" ToRole="Sources" />
+    <NavigationProperty Name="Users" Relationship="zvikaModel.FK_Users_Events_Users" FromRole="Users_Sources" ToRole="Users" />
+  </EntityType>
+  <Association Name="FK_Events_Source_Event">
+    <End Type="zvikaModel.Sources" Role="Sources" Multiplicity="1" />
+    <End Type="zvikaModel.Events" Role="Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sources">
+        <PropertyRef Name="source_id" />
+      </Principal>
+      <Dependent Role="Events">
+        <PropertyRef Name="source_id" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="zvikaEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Events" EntityType="Self.Events" />
-    <EntitySet Name="Sources" EntityType="Self.Sources" />
-    <EntitySet Name="Users" EntityType="Self.Users" />
-    <AssociationSet Name="Users_Events" Association="Self.Users_Events">
-      <End Role="Events" EntitySet="Events" />
-      <End Role="Users" EntitySet="Users" />
-    </AssociationSet>
-  </EntityContainer>
+  <Association Name="FK_Users_Events_Sources">
+    <End Type="zvikaModel.Sources" Role="Sources" Multiplicity="1" />
+    <End Type="zvikaModel.Users_Sources" Role="Users_Sources" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sources">
+        <PropertyRef Name="source_id" />
+      </Principal>
+      <Dependent Role="Users_Sources">
+        <PropertyRef Name="source_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Events_Users">
+    <End Type="zvikaModel.Users" Role="Users" Multiplicity="1" />
+    <End Type="zvikaModel.Users_Sources" Role="Users_Sources" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="Users_Sources">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

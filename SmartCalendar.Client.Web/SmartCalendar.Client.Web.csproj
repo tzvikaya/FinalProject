@@ -70,6 +70,8 @@
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\coming-soon-social.css" />
+    <Content Include="css\custom.css" />
+    <Content Include="css\fullcalendar.css" />
     <Content Include="css\icomoon-social.css" />
     <Content Include="css\leaflet.css" />
     <Content Include="css\leaflet.ie.css" />
@@ -183,6 +185,7 @@
     <Content Include="index.html" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\fullcalendar.min.js" />
     <Content Include="js\jquery-1.9.1.min.js" />
     <Content Include="js\jquery.bxslider.js" />
     <Content Include="js\jquery.fitvids.js" />
@@ -214,6 +217,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="views\calendar.html" />
+    <Content Include="views\login.html" />
     <Content Include="views\main.html" />
     <Content Include="views\sources.html" />
     <Content Include="Web.config" />

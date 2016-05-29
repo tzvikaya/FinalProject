@@ -28,5 +28,6 @@ namespace SmartCalendar.DB
         public virtual DbSet<Events> Events { get; set; }
         public virtual DbSet<Sources> Sources { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Users_Sources> Users_Sources { get; set; }
     }
 }

@@ -1,91 +1,48 @@
 var zvikaAppControllers = angular.module('zvikaAppControllers', []);
 
-
 zvikaAppControllers.controller("indexCtrl", function($scope) {
  
 });
 
-zvikaAppControllers.controller("sourcesCtrl", function($scope) {
-    $scope.sourcesList = [
-        {
-            day: 13,
-            month: "April",
-            desc: "Jerusalem municipality source.",
-            area: "municipality",
-            price: "$00.00",
-            button: "Subscribe",
-            buttonClass: "btn-blue"
-        },
-        {
-            day: 16,
-            month: "March",
-            desc: "JCE Azriele source.",
-            area: "college",
-            price: "$00.00",
-            button: "unSubscribe",
-            buttonClass: "btn-red"
-        },
-        {
-            day: 26,
-            month: "June",
-            desc: "Licensing Department.",
-            area: "vehicle",
-            price: "$00.00",
-            button: "Subscribe",
-            buttonClass: "btn-blue"
-        },
-        {
-            day: 10,
-            month: "November",
-            desc: "Leumit Health Care Services.",
-            area: "National health service",
-            price: "$10.00",
-            button: "Subscribe",
-            buttonClass: "btn-blue"
-        },
-        {
-            day: 16,
-            month: "march",
-            desc: "google calendar.",
-            area: "calendar service",
-            price: "$00.00",
-            button: "unSubscribe",
-            buttonClass: "btn-red"
-        },
-        {
-            day: 16,
-            month: "march",
-            desc: "Student Dani Din.",
-            area: "Linear test",
-            price: "$00.00",
-            button: "unSubscribe",
-            buttonClass: "btn-red"
-        },
-        {
-            day: 1,
-            month: "August",
-            desc: "Student Zvika Yamin.",
-            area: "soccer game",
-            price: "$0.00",
-            button: "unSubscribe",
-            buttonClass: "btn-red"
-        },
-        {
-            day: 16,
-            month: "march",
-            desc: "Dogy Dog veterinarian.",
-            area: "Dog Care",
-            price: "$50.00",
-            button: "unSubscribe",
-            buttonClass: "btn-red"
-        },
-       
-    ];
+zvikaAppControllers.controller("loginCtrl", function ($scope, $http) {
+    $scope.$root.title = "Login";
     
+    $scope.Login = function () {
+        $http.get("http://zvikayamin.azurewebsites.net/webapi/api/Users/" + $scope.userName)
+        .then(function (response) {
+            console.log(response);
+            $scope.loginMessage = "hello " +  response.data.user_firstname + " !";
+
+        });
+
+    }
+});
+
+zvikaAppControllers.controller("sourcesCtrl", function($scope, $http) {
+    $scope.$root.title = "Sources";
+    $scope.sourcesList = [];
+    
+    $http.get("http://zvikayamin.azurewebsites.net/webapi/api/Sources")
+        .then(function (response) {
+            angular.forEach(response.data, function (value, key) {
+                var s = {
+                    day: 13,
+                    month: "April",
+                    desc: value.source_name + " source.",
+                    area: "xxxxx",
+                    price: "$00.00",
+                    button: "Subscribe",
+                    buttonClass: "btn-blue"
+                }
+                $scope.sourcesList.push(s);
+            });
+        });
     
 });
 
-zvikaAppControllers.controller("calendarCtrl", function($scope) {
+zvikaAppControllers.controller("calendarCtrl", function ($scope) {
+    $scope.$root.title = "Calendar";
+
     $('#calendar').fullCalendar({
 			header: {
 				left: 'prev,next today',

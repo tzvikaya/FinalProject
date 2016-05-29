@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -20,7 +20,7 @@
 		    <link rel="stylesheet" href="css/leaflet.ie.css" />
 		<![endif]-->
 		<link rel="stylesheet" href="css/main.css">
-
+        <link rel="stylesheet" href="css/custom.css">
         <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
@@ -64,6 +64,9 @@
 						<li>
 							<a href="#/">Home</a>
 						</li>
+                        <li>
+                            <a href="#/login">Login</a>
+                        </li>
 						<li>
 							<a href="#/sources">Sources</a>
 						</li>
@@ -146,8 +149,27 @@
 				</nav>
 			</div>
 		</div> 
+        <!-- Page Title -->
+        <div class="section section-breadcrumbs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>{{title}}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div ng-view></div>
+                    </div>
+                </div>
+            </div>
+        </div>
         
-        <div ng-view></div>
         
 	    <!-- Footer -->
 	    <div class="footer">
@@ -201,7 +223,8 @@
         >
              <!-- Javascripts -->
            
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
+        <script src="js/jquery-1.9.1.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/jquery-1.9.1.min.js"><\/script>')</script>
         
         <script src="js/bootstrap.min.js"></script>
@@ -212,8 +235,8 @@
         <!--<script src="js/main-menu.js"></script>-->
         <script src="js/template.js"></script>
         
-        <link href='http://fullcalendar.io/js/fullcalendar-2.7.1/fullcalendar.css' rel='stylesheet' />
+        <link href='css/fullcalendar.css' rel='stylesheet' />
 <script src='http://fullcalendar.io/js/fullcalendar-2.7.1/lib/moment.min.js'></script>
-<script src='http://fullcalendar.io/js/fullcalendar-2.7.1/fullcalendar.min.js'></script>
+<script src='js/fullcalendar.min.js'></script>
     </body>
 </html>

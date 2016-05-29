@@ -17,7 +17,7 @@ namespace SmartCalendar.DB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Users()
         {
-            this.Events = new HashSet<Events>();
+            this.Users_Sources = new HashSet<Users_Sources>();
         }
     
         public int user_id { get; set; }
@@ -29,6 +29,6 @@ namespace SmartCalendar.DB
         public string user_lastname { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Events> Events { get; set; }
+        public virtual ICollection<Users_Sources> Users_Sources { get; set; }
     }
 }

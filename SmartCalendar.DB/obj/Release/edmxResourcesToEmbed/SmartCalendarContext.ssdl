@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="zvikaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Events">
+    <Key>
+      <PropertyRef Name="event_id" />
+    </Key>
+    <Property Name="event_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="event_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="event_desc" Type="varchar" MaxLength="50" />
+    <Property Name="event_datetimeUTC" Type="datetime" />
+    <Property Name="event_location" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Sources">
+    <Key>
+      <PropertyRef Name="source_id" />
+    </Key>
+    <Property Name="source_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="source_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="source_password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="source_username" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_tz" Type="varchar" MaxLength="9" />
+    <Property Name="user_phone" Type="varchar" MaxLength="15" />
+    <Property Name="user_email" Type="varchar" MaxLength="250" />
+    <Property Name="user_isRegistered" Type="bit" Nullable="false" />
+    <Property Name="user_firstname" Type="varchar" MaxLength="50" />
+    <Property Name="user_lastname" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Users_Events">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="event_id" />
+    </Key>
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="event_id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Users_Events_Events">
+    <End Role="Events" Type="Self.Events" Multiplicity="1" />
+    <End Role="Users_Events" Type="Self.Users_Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Events">
+        <PropertyRef Name="event_id" />
+      </Principal>
+      <Dependent Role="Users_Events">
+        <PropertyRef Name="event_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Events_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Users_Events" Type="Self.Users_Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="Users_Events">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="zvikaModelStoreContainer">
+    <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sources" EntityType="Self.Sources" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users_Events" EntityType="Self.Users_Events" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Users_Events_Events" Association="Self.FK_Users_Events_Events">
+      <End Role="Events" EntitySet="Events" />
+      <End Role="Users_Events" EntitySet="Users_Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Events_Users" Association="Self.FK_Users_Events_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Users_Events" EntitySet="Users_Events" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

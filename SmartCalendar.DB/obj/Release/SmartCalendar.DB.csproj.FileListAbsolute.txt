@@ -1,0 +1,10 @@
+C:\Users\kobe\Dropbox\VisualStudioDrive\Projects\SmartCalendar\SmartCalendar.DB\bin\Release\SmartCalendar.DB.dll.config
+C:\Users\kobe\Dropbox\VisualStudioDrive\Projects\SmartCalendar\SmartCalendar.DB\bin\Release\SmartCalendar.DB.dll
+C:\Users\kobe\Dropbox\VisualStudioDrive\Projects\SmartCalendar\SmartCalendar.DB\bin\Release\SmartCalendar.DB.pdb
+C:\Users\kobe\Dropbox\VisualStudioDrive\Projects\SmartCalendar\SmartCalendar.DB\bin\Release\EntityFramework.dll
+C:\Users\kobe\Dropbox\VisualStudioDrive\Projects\SmartCalendar\SmartCalendar.DB\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\kobe\Dropbox\VisualStudioDrive\Projects\SmartCalendar\SmartCalendar.DB\bin\Release\EntityFramework.xml
+C:\Users\kobe\Dropbox\VisualStudioDrive\Projects\SmartCalendar\SmartCalendar.DB\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\kobe\Dropbox\VisualStudioDrive\Projects\SmartCalendar\SmartCalendar.DB\obj\Release\SmartCalendar.DB.csprojResolveAssemblyReference.cache
+C:\Users\kobe\Dropbox\VisualStudioDrive\Projects\SmartCalendar\SmartCalendar.DB\obj\Release\SmartCalendar.DB.dll
+C:\Users\kobe\Dropbox\VisualStudioDrive\Projects\SmartCalendar\SmartCalendar.DB\obj\Release\SmartCalendar.DB.pdb

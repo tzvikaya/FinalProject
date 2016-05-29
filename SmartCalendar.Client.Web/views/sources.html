@@ -1,40 +1,21 @@
-        <!-- Page Title -->
-		<div class="section section-breadcrumbs">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<h1>Sources</h1>
-					</div>
-				</div>
-			</div>
-		</div>
-        
-        <div class="section">
-	    	<div class="container">
-	    		<div class="row">
-	    			<div class="col-md-12">
-	    				<table class="events-list">
-	    					<tr ng-repeat="source in sourcesList">
-	    						<td>
-	    							<div class="event-date">
-	    								<div class="event-day">{{source.day}}</div>
-	    								<div class="event-month">{{source.month}}</div>
-	    							</div>
-	    						</td>
-	    						<td>
-	    							{{source.desc}}
-	    						</td>
-	    						<td class="event-venue hidden-xs">
-									<i class="icon-map-marker"></i>{{source.area}}</td>
-	    						<td class="event-price hidden-xs">{{source.price}}</td>
-	    						<td>
-									<a href="" class="btn btn-sm event-more" ng-class="source.buttonClass" ng-click="source.buttonClass=btn-blue ">
-										{{source.button}}	
-									</a>
-								</td>
-	    					</tr>
-	    				</table>
-	    			</div>
-	    		</div>
-			</div>
-		</div>
+<table class="events-list">
+	<tr ng-repeat="source in sourcesList">
+	    <td>
+	    	<div class="event-date">
+	    		<div class="event-day">{{source.day}}</div>
+	    		<div class="event-month">{{source.month}}</div>
+	    	</div>
+	    </td>
+	    <td>
+	    	{{source.desc}}
+	    </td>
+	    <td class="event-venue hidden-xs">
+			<i class="icon-map-marker"></i>{{source.area}}</td>
+	    <td class="event-price hidden-xs">{{source.price}}</td>
+	    <td>
+			<a href="" class="btn btn-sm event-more" ng-class="source.buttonClass" ng-click="source.buttonClass=btn-blue ">
+				{{source.button}}	
+			</a>
+		</td>
+	</tr>
+</table>

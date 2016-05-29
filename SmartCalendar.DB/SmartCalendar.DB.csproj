@@ -76,6 +76,9 @@
     <Compile Include="Users.cs">
       <DependentUpon>SmartCalendarContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Users_Sources.cs">
+      <DependentUpon>SmartCalendarContext.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
