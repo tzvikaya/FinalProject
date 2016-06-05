@@ -1,0 +1,122 @@
+body{
+      background: url(https://market.marmelada.co.il/photos/1077474.JPG) no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    
+   margin:0;
+   padding:0;
+   height:100%;
+}
+
+
+   body #container {
+   min-height:100%;
+   position:relative;
+}
+
+
+body #header{
+/*      background-color: antiquewhite;*/
+/*    background:#ff0;*/
+    padding:10px;
+    background: rgba(255,216, 0, .5);
+    
+}
+a{
+    font-style: italic;
+    color: blue;
+    font-family: aguafina-script, almendra-sc;
+    font-size: 50px;
+    
+    
+ }
+
+body #mid{
+    
+padding:10px;
+padding-bottom:60px;
+font-family: aclonica, aguafina-script;
+font-style:italic;
+font-size: 30px;
+color: cornflowerblue;
+}
+
+
+h1{
+  font-family: aclonica, aguafina-script;
+  font-size: 70px;
+  color: blue;
+  }
+
+h2{
+    font-family: cooper-black-std, allura;
+    font-size: 50px;
+    color: chocolate;
+}
+
+
+.myButton {
+	-moz-box-shadow: -49px 26px 14px 0px #899599;
+	-webkit-box-shadow: -49px 26px 14px 0px #899599;
+	box-shadow: -49px 26px 14px 0px #899599;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #bab1ba));
+	background:-moz-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+	background:-webkit-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+	background:-o-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+	background:-ms-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+	background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#bab1ba',GradientType=0);
+	background-color:#ededed;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
+	border-radius:15px;
+	border:3px solid #d6bcd6;
+	display:inline-block;
+	cursor:pointer;
+	color:#3a8a9e;
+	font-family:Arial;
+	font-size:24px;
+	padding:20px 76px;
+	text-decoration:none;
+	text-shadow:-21px 7px 2px #e1e2ed;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bab1ba), color-stop(1, #ededed));
+	background:-moz-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+	background:-webkit-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+	background:-o-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+	background:-ms-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+	background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bab1ba', endColorstr='#ededed',GradientType=0);
+	background-color:#bab1ba;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+body #footer{
+    
+   position:absolute;
+/*  bottom:0;*/
+   width:100%;
+   height:120px;   /* Height of the footer */
+   background:#6cf;
+   background:rgba(184,127,255, .7);
+   font-size: 10px;
+   
+   
+    
+}
+body #link{
+    
+    
+    font-family: allura, alex-brush;
+    font-size: 40px;
+    color: blue;
+    
+    
+}

@@ -1,0 +1,60 @@
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+   
+   background: url(https://securenews.ru/wp-content/uploads/2015/09/binary-code-image.jpg) no-repeat center center fixed;
+    
+    background-color: black;
+    
+}
+body #container {
+   min-height:100%;
+   position:relative;
+}
+body #header {
+ background: rgba(255,216, 0, .5);
+   padding:60px;
+}
+body #body {
+   padding:10px;
+   padding-bottom:500px;   /* Height of the footer */
+}
+
+h1{
+    font-size: 80px;
+    color: darkorange;
+    font-family: aclonica, alice; 
+    font-style:italic ;
+    font-weight: 900;
+}
+
+h2{
+    font-size: 60px;
+    color: antiquewhite;
+    font-family: aclonica, alice; 
+    font-style:italic ;
+    font-weight: 900;
+}
+
+form{
+     font-size: 40px;
+    color: aliceblue;
+    font-family: aclonica, alice; 
+    font-style:italic ;
+    font-weight: 900;
+}
+
+body #footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:100px;   /* Height of the footer */
+   background:rgba(184,127,255, .7);
+}
+
+body #link{
+    font-size:40px; 
+    color: bisque;
+    font-style:italic ;
+}
