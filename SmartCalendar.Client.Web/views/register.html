@@ -1,0 +1,28 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-md-6 basic-login">
+            <form>
+                <fieldset>
+                    <legend>Register</legend>
+                    <br />  
+                    <label>First name: <input type="text" ng-model="user.user_firstname" /></label>
+                    <br />
+                    <label>Last name: <input type="text" ng-model="user.user_lastname" /></label>
+                    <br />
+                    <label>Email: <input type="email" ng-model="user.user_email" /></label>
+                    <br />
+                    <label>Phone number: <input type="number" ng-model="user.user_phone" /></label>
+                    <br />
+                    <label>TZ: <input type="text" ng-model="user.user_tz" /></label>
+                    <br />
+                    <label>password: <input type="password" ng-model="userPass" /></label>
+                    <br />
+                    <button class="btn" type="submit" ng-click="Register()">Register!</button>
+                    <br />
+                    <span>{{Message}}</span>
+                </fieldset>
+                Don't have an account yet? <a href="#/register">click to register</a>
+            </form>
+        </div>
+    </div>
+</div>

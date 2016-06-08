@@ -1,7 +1,7 @@
-var zvikaAppControllers = angular.module('zvikaAppControllers', []);
+var zvikaAppControllers = angular.module('zvikaAppControllers',  []);
 
 zvikaAppControllers.controller("indexCtrl", function($scope) {
- 
+   
 });
 
 zvikaAppControllers.controller("loginCtrl", function ($scope, $http) {
@@ -12,6 +12,25 @@ zvikaAppControllers.controller("loginCtrl", function ($scope, $http) {
         .then(function (response) {
             console.log(response);
             $scope.loginMessage = "hello " +  response.data.user_firstname + " !";
+
+        });
+
+    }
+});
+
+zvikaAppControllers.controller("registerCtrl", function ($scope, $http) {
+    $scope.$root.title = "Register";
+    $scope.user = {};
+    $scope.user.user_isRegistered = true;
+
+    $scope.Register = function () {
+        $http.post(
+            "http://zvikayamin.azurewebsites.net/webapi/api/Users/",
+            $scope.user
+        )
+        .then(function (response) {
+            console.log(response);
+            $scope.Message = "hello " + response.data.user_firstname + " Your user id is: " + response.data.user_id + " !";
 
         });
 

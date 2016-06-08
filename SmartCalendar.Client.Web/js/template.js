@@ -14,7 +14,7 @@ $(document).ready(function(){
     var mySequence = $("#sequence").sequence(options).data("sequence");
 
     //Main menu Initialization
-    mainMenu.init();
+    //mainMenu.init();
 
 	//Products slider
 	var produxtsSlider = $('.products-slider').bxSlider({

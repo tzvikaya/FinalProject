@@ -3,9 +3,23 @@ body {
    padding:0;
    height:100%;
    
-   background: url(https://securenews.ru/wp-content/uploads/2015/09/binary-code-image.jpg) no-repeat center center fixed;
+/*   background: url(http://wallpaperfav.com/wp-content/uploads/plixpapers1601/artistic_abstract_wallpaper_background_587.jpg);*/
     
-    background-color: black;
+    
+    
+    /* The background image */
+    background-image: url(http://wallpaperfav.com/wp-content/uploads/plixpapers1601/artistic_abstract_wallpaper_background_587.jpg);
+    /* Set a specified height, or the minimum height for the background image */
+    min-height: 500px;
+    /* Set background image to fixed (don't scroll along with the page) */
+/*    background-attachment: fixed;*/
+    /* Center the background image */
+    background-position: center;
+    /* Set the background image to no repeat */
+    background-repeat: no-repeat;
+    /* Scale the background image to be as large as possible */
+    background-size: cover;
+/*    background-color: black;*/
     
 }
 body #container {
@@ -13,7 +27,7 @@ body #container {
    position:relative;
 }
 body #header {
- background: rgba(255,216, 0, .5);
+ background: rgba(192,192,192, .5);
    padding:60px;
 }
 body #body {
@@ -23,7 +37,7 @@ body #body {
 
 h1{
     font-size: 80px;
-    color: darkorange;
+    color: blue;
     font-family: aclonica, alice; 
     font-style:italic ;
     font-weight: 900;
@@ -31,26 +45,79 @@ h1{
 
 h2{
     font-size: 60px;
-    color: antiquewhite;
+    color: darkorange;
+    color: black;
     font-family: aclonica, alice; 
     font-style:italic ;
     font-weight: 900;
 }
 
 form{
-     font-size: 40px;
-    color: aliceblue;
+    font-size: 50px;
+    color: darkorange;
     font-family: aclonica, alice; 
     font-style:italic ;
     font-weight: 900;
 }
+
+   input[type="text"]{
+    font-size: 35px;
+    color: blue;
+    font-style:italic; 
+    font-family: arial;
+    
+}
+
+
+.myButton {
+	-moz-box-shadow: -33px 30px 15px -11px #f0f7fa;
+	-webkit-box-shadow: -33px 30px 15px -11px #f0f7fa;
+	box-shadow: -33px 30px 15px -11px #f0f7fa;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #33bdef), color-stop(1, #019ad2));
+	background:-moz-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+	background:-webkit-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+	background:-o-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+	background:-ms-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+	background:linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#33bdef', endColorstr='#019ad2',GradientType=0);
+	background-color:#33bdef;
+	-moz-border-radius:16px;
+	-webkit-border-radius:16px;
+	border-radius:16px;
+	border:3px solid #057fd0;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:28px;
+	font-weight:bold;
+	font-style:italic;
+	padding:8px 57px;
+	text-decoration:none;
+	text-shadow:-20px 6px 14px #455385;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #019ad2), color-stop(1, #33bdef));
+	background:-moz-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+	background:-webkit-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+	background:-o-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+	background:-ms-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+	background:linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#019ad2', endColorstr='#33bdef',GradientType=0);
+	background-color:#019ad2;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
 
 body #footer {
    position:absolute;
    bottom:0;
    width:100%;
    height:100px;   /* Height of the footer */
-   background:rgba(184,127,255, .7);
+   background:rgba(128,128,128, .5);
 }
 
 body #link{

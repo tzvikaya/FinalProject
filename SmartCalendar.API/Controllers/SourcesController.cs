@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using SmartCalendar.DB;
+using System.Web.Http.Cors;
 
 namespace SmartCalendar.API.Controllers
 {
@@ -17,6 +18,7 @@ namespace SmartCalendar.API.Controllers
         private zvikaEntities db = new zvikaEntities();
 
         // GET: api/Sources
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public IQueryable<Sources> GetSources()
         {
             return db.Sources;

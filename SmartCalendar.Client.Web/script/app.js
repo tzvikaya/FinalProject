@@ -11,6 +11,10 @@ app.config(['$routeProvider',
                 templateUrl: 'views/login.html',
                 controller: 'loginCtrl'
             }).
+            when('/register', {
+                templateUrl: 'views/register.html',
+                controller: 'registerCtrl'
+            }).
             when('/sources', {
                 templateUrl: 'views/sources.html',
                 controller: 'sourcesCtrl'
