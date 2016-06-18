@@ -5,10 +5,9 @@
 <form>
     <fieldset>
         <legend>Login</legend>
-        <label>user name: <input type="text" ng-model="userName" /></label>
+        <label>user name: <input type="text" ng-model="user.user_username" /></label>
         <br />
-
-        <label>password: <input type="password" ng-model="userPass" /></label>
+        <label>password: <input type="password" ng-model="user.user_password" /></label>
         <br />
         <button class="btn" type="submit" ng-click="Login()">Login!</button>
         <br />

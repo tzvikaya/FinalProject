@@ -10,13 +10,6 @@ namespace SmartCalendar.API
     {
         public static void Register(HttpConfiguration config)
         {
-            var cors = new EnableCorsAttribute(
-            origins: "*",
-            headers: "*",
-            methods: "*");
-            config.EnableCors(cors);
-            
-
             // Web API configuration and services
 
             // Web API routes

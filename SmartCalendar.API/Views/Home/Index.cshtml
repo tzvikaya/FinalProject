@@ -22,9 +22,9 @@
         }
 
         $.ajax({
-            type: "POST",
-            url: "/api/Users",
-            data: JSON.stringify(user),
+            type: "GET",
+            url: "/api/Sources/1",
+           
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (data) { console.log(data); },

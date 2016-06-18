@@ -27,6 +27,8 @@ namespace SmartCalendar.DB
         public bool user_isRegistered { get; set; }
         public string user_firstname { get; set; }
         public string user_lastname { get; set; }
+        public string user_password { get; set; }
+        public string user_username { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Users_Sources> Users_Sources { get; set; }

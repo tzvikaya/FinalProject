@@ -36,6 +36,8 @@
           <Property Name="user_isRegistered" Type="bit" Nullable="false" />
           <Property Name="user_firstname" Type="varchar" MaxLength="50" />
           <Property Name="user_lastname" Type="varchar" MaxLength="50" />
+          <Property Name="user_password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_username" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Users_Sources">
           <Key>
@@ -156,6 +158,8 @@
           <Property Name="user_isRegistered" Type="Boolean" Nullable="false" />
           <Property Name="user_firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="user_lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Users_Sources" Relationship="zvikaModel.FK_Users_Events_Users" FromRole="Users" ToRole="Users_Sources" />
         </EntityType>
         <EntityType Name="Users_Sources">
@@ -236,6 +240,8 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="zvikaModel.Users">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="user_username" ColumnName="user_username" />
+                <ScalarProperty Name="user_password" ColumnName="user_password" />
                 <ScalarProperty Name="user_lastname" ColumnName="user_lastname" />
                 <ScalarProperty Name="user_firstname" ColumnName="user_firstname" />
                 <ScalarProperty Name="user_isRegistered" ColumnName="user_isRegistered" />

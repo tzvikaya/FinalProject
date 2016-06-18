@@ -4,6 +4,8 @@
             <form>
                 <fieldset>
                     <legend>Register</legend>
+                    <br />
+                    <label>Username: <input type="text" ng-model="user.user_username" /></label>
                     <br />  
                     <label>First name: <input type="text" ng-model="user.user_firstname" /></label>
                     <br />
@@ -15,11 +17,20 @@
                     <br />
                     <label>TZ: <input type="text" ng-model="user.user_tz" /></label>
                     <br />
-                    <label>password: <input type="password" ng-model="userPass" /></label>
+                    <label>password: <input type="password" ng-model="user.user_password" /></label>
                     <br />
                     <button class="btn" type="submit" ng-click="Register()">Register!</button>
                     <br />
-                    <span>{{Message}}</span>
+                    <output>
+                        <span ng-show="Message">
+                            <label class="label label-success">
+                                {{Message}}
+
+                            </label>
+                            <a href="#/login">Click here to login</a>
+                        </span>
+                        <label class="label label-danger">{{errorMessage}}</label>
+                    </output>
                 </fieldset>
                 Don't have an account yet? <a href="#/register">click to register</a>
             </form>

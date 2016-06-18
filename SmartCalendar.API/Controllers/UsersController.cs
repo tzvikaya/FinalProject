@@ -24,49 +24,23 @@ namespace SmartCalendar.API.Controllers
 
         // GET: api/Users/5
         [ResponseType(typeof(Users))]
-        public IHttpActionResult GetUsers(int id)
+        public IHttpActionResult GetUsers(string user_password, string user_username)
         {
-            Users users = db.Users.Find(id);
-            if (users == null)
+            var _u = db.Users.Where(u => u.user_username == user_username && u.user_password == user_password);
+            if (_u.Count() > 0)
             {
-                return NotFound();
+                return Ok(_u.First());
             }
-
-            return Ok(users);
+            return NotFound();
         }
 
         // PUT: api/Users/5
+        //update only source id of user
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutUsers(int id, Users users)
+        [Route]
+        public IHttpActionResult PutUsers(int id, int sourceId)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != users.user_id)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(users).State = EntityState.Modified;
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!UsersExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
+            
             return StatusCode(HttpStatusCode.NoContent);
         }
 
@@ -78,6 +52,13 @@ namespace SmartCalendar.API.Controllers
             {
                 return BadRequest(ModelState);
             }
+            if (string.IsNullOrEmpty(users.user_username))
+                return BadRequest("USername is required");
+
+            if (db.Users.Where(u => u.user_email == users.user_email).Count() > 0)
+                return BadRequest("Email already registered");
+
+
 
             db.Users.Add(users);
             db.SaveChanges();

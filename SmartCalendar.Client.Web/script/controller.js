@@ -1,18 +1,29 @@
 var zvikaAppControllers = angular.module('zvikaAppControllers',  []);
 
-zvikaAppControllers.controller("indexCtrl", function($scope) {
-   
+zvikaAppControllers.controller("indexCtrl", function ($scope, $rootScope, AuthService) {
+    console.log(AuthService.isLoggedIn());
+    $rootScope.isLogged = AuthService.isLoggedIn();
+    console.log(AuthService.isLoggedIn());
 });
 
-zvikaAppControllers.controller("loginCtrl", function ($scope, $http) {
+zvikaAppControllers.controller("loginCtrl", function ($scope, $rootScope, $http, AuthService, $location) {
     $scope.$root.title = "Login";
-    
+    $scope.user = {};
+
     $scope.Login = function () {
-        $http.get("http://zvikayamin.azurewebsites.net/webapi/api/Users/" + $scope.userName)
+        var config = {
+            params: $scope.user
+        };
+        console.log($scope.user);
+        console.log(config);
+        $http.get("http://zvikayamin.azurewebsites.net/webapi/api/Users/", config)
         .then(function (response) {
             console.log(response);
-            $scope.loginMessage = "hello " +  response.data.user_firstname + " !";
-
+            $scope.loginMessage = "Login success !";
+            AuthService.login(response.data);
+            console.log(AuthService.currentUser());
+            $rootScope.isLogged = AuthService.isLoggedIn();
+            $location.path("/");
         });
 
     }
@@ -24,6 +35,8 @@ zvikaAppControllers.controller("registerCtrl", function ($scope, $http) {
     $scope.user.user_isRegistered = true;
 
     $scope.Register = function () {
+        $scope.Message = '';
+        $scope.errorMessage = '';
         $http.post(
             "http://zvikayamin.azurewebsites.net/webapi/api/Users/",
             $scope.user
@@ -32,31 +45,63 @@ zvikaAppControllers.controller("registerCtrl", function ($scope, $http) {
             console.log(response);
             $scope.Message = "hello " + response.data.user_firstname + " Your user id is: " + response.data.user_id + " !";
 
+        }, function (response) {
+            console.log(response);
+            $scope.errorMessage = "Error: " + response.data.Message + ".";
         });
 
     }
 });
 
-zvikaAppControllers.controller("sourcesCtrl", function($scope, $http) {
+zvikaAppControllers.controller("sourcesCtrl", function ($scope, $http, AuthService) {
+    
     $scope.$root.title = "Sources";
     $scope.sourcesList = [];
-    
+    function IsSourceExist(sid) {
+        for (var i = 0; i < AuthService.currentUser().Users_Sources.length; i++)
+            if (AuthService.currentUser().Users_Sources[i].source_id == sid)
+                return true;
+        return false;
+    }
     $http.get("http://zvikayamin.azurewebsites.net/webapi/api/Sources")
         .then(function (response) {
             angular.forEach(response.data, function (value, key) {
                 var s = {
-                    day: 13,
+                    source_id: value.source_id,
                     month: "April",
-                    desc: value.source_name + " source.",
+                    source_name: value.source_name,
                     area: "xxxxx",
                     price: "$00.00",
-                    button: "Subscribe",
-                    buttonClass: "btn-blue"
+                    button: IsSourceExist(value.source_id) ? "unSubscribe" : "Subscribe",
+                    buttonClass: IsSourceExist(value.source_id) ? "btn-red" : "btn-blue"
+                        
+
                 }
                 $scope.sourcesList.push(s);
             });
         });
     
+    $scope.SourceClick = function (sid) {
+        console.log(sid);
+        var source = {
+            source_id: sid,
+            user_id: IsSourceExist(sid) ? -1 : AuthService.currentUser().user_id
+        };
+        AuthService.currentUser().Users_Sources.push(source);
+        $http.post("http://zvikayamin.azurewebsites.net/webapi/api/UsersSources", AuthService.currentUser())
+       .then(
+           function (response) {
+               source.dateRegistered = "2016-05-29T17:49:22.03";
+               console.log(response);
+               
+               // success callback
+           },
+           function (response) {
+               console.log(response);
+               // failure callback
+           }
+        );
+    };
 });
 
 zvikaAppControllers.controller("calendarCtrl", function ($scope) {

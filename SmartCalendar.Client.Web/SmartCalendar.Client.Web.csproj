@@ -967,6 +967,7 @@
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
     <Content Include="script\app.js" />
     <Content Include="script\controller.js" />
+    <Content Include="script\factory.js" />
     <Content Include="script\mPurpose-logo.png" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
